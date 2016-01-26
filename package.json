@@ -1,6 +1,6 @@
 {
   "name": "ip-location",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Get an IP or hostname location.",
   "main": "index.js",
   "scripts": {
