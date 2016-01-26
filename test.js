@@ -25,7 +25,3 @@ test('should fetch location with promise', function (t) {
     t.fail(err)
   })
 })
-
-ipLocation('github.com', function (err, data) {
-  console.log(data)
-})
