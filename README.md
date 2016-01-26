@@ -98,6 +98,10 @@ ipLocation('', function (err, myLocation) {
 })
 ```
 
+Related
+-------
+- [ip-location-cli](https://github.com/jprichardson/ip-location-cli) - Command line utility for this module.
+
 License
 -------
 
