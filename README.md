@@ -1,7 +1,7 @@
 ip-location
 ===========
 
-> Fetch the location of an IP address or host name.
+> Fetch the location of an IP address, host name, or your own location.
 
 Uses [freegeoip.net](http://freegeoip.net/) to query for information. freegeoip.net uses
 [MaxMind Geolite 2](http://dev.maxmind.com/geoip/geoip2/geolite2/).
@@ -16,7 +16,7 @@ Install
 Usage
 -----
 
-### w/ callbacks
+### With Callbacks
 
 ```js
 var ipLocation = require('ip-location')
@@ -42,7 +42,7 @@ Outputs:
   metro_code: 807 }
 ```
 
-### w/ Promises
+### With Promises
 
 ```js
 var ipLocation = require('ip-location')
@@ -56,7 +56,7 @@ ipLocation('github.com')
 })
 ```
 
-### set your own Promise implementation
+### Set Your Own Promise Implementation
 
 You can set your own Promise library if you want to use Bluebird or are using
 Node v0.10.
@@ -67,7 +67,7 @@ var ipLocation = require('ip-location')
 ipLocation.Promise = require('bluebird')
 ```
 
-### use in Browser / or use own HTTP library
+### Use in Browser / or Use Own HTTP Library
 
 If you want to use this in the browser, you must bring your own http GET library
 to the party. I'd recommend: [xhr](https://www.npmjs.com/package/xhr) or
@@ -86,6 +86,16 @@ ipLocation.httpGet = function (url, callback) {
     callback(err)
   })
 }
+```
+
+### Fetch Your Location
+
+Just pass in an empty string.
+
+```js
+ipLocation('', function (err, myLocation) {
+  console.dir(myLocation)
+})
 ```
 
 License
