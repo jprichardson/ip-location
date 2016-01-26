@@ -20,6 +20,7 @@ Usage
 
 ```js
 var ipLocation = require('ip-location')
+
 ipLocation('github.com', function (err, data) {
   console.log(data)
 })
@@ -45,6 +46,7 @@ Outputs:
 
 ```js
 var ipLocation = require('ip-location')
+
 ipLocation('github.com')
 .then(function (data) {
   console.dir(data)
@@ -61,6 +63,7 @@ Node v0.10.
 
 ```js
 var ipLocation = require('ip-location')
+
 ipLocation.Promise = require('bluebird')
 ```
 
@@ -72,6 +75,7 @@ to the party. I'd recommend: [xhr](https://www.npmjs.com/package/xhr) or
 
 ```js
 var ipLocation = require('ip-location')
+
 ipLocation.httpGet = function (url, callback) {
   fetch(url).then(function (resp) {
     return resp.text() // don't use json()

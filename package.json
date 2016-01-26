@@ -18,7 +18,8 @@
     "longitude",
     "host",
     "name",
-    "networking"
+    "networking",
+    "maxmind"
   ],
   "author": "JP Richardson",
   "license": "MIT",
