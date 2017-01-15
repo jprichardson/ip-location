@@ -5,7 +5,7 @@ ipLocation.httpGet = httpGet // so it can be overwritten
 ipLocation.Promise = typeof Promise === 'function' ? Promise : null // maybe you want to use Bluebird
 
 function _ipLocation (hostnameOrIP, callback) {
-  httpGet('https://freegeoip.net/json/' + hostnameOrIP, function (err, res) {
+  ipLocation.httpGet('https://freegeoip.net/json/' + hostnameOrIP, function (err, res) {
     if (err) return callback(err)
     try {
       var data = JSON.parse(res.body)
