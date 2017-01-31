@@ -7,6 +7,7 @@ ipLocation.Promise = typeof Promise === 'function' ? Promise : null // maybe you
 function _ipLocation (hostnameOrIP, callback) {
   ipLocation.httpGet('https://freegeoip.net/json/' + hostnameOrIP, function (err, res) {
     if (err) return callback(err)
+    if (!res) return callback(new Error('empty response'))
     try {
       var data = JSON.parse(res.body)
       return callback(null, data)
