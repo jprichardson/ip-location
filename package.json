@@ -35,5 +35,8 @@
     "http": false,
     "https": false,
     "url": false
+  },
+  "dependencies": {
+    "is-domain-name": "^1.0.1"
   }
 }
