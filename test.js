@@ -26,7 +26,13 @@ test('should fetch location with promise', function (t) {
   })
 })
 
-test('should throw a meaningful error when an invalid ip is given', function (t) {
+test('shouldn\'t call the server with an invalid ip', function (t) {
+  var lastUrl
+  t.plan(2)
+  var oldHttpGet = ipLocation.httpGet
+  ipLocation.httpGet = function httpGetMock (url, callback) {
+    lastUrl = url
+  }
   ipLocation('1.2.3')
   .then(function (invalidRes) {
     t.fail(invalidRes)
@@ -35,19 +41,8 @@ test('should throw a meaningful error when an invalid ip is given', function (t)
     t.is(err, 'Invalid IP or hostname')
     t.end()
   })
-})
-
-test('shouldn\'t call the server with an invalid ip', function (t) {
-  var lastUrl
-  t.plan(1)
-  var oldHttpGet = ipLocation.httpGet
-  ipLocation.httpGet = function httpGetMock (url, callback) {
-    lastUrl = url
-  }
-  ipLocation('1.2.3')
   t.is(lastUrl, undefined, 'should never post to the server')
   ipLocation.httpGet = oldHttpGet // restore the original httpGet
-  t.end()
 })
 
 test('should allow real IPs', function (t) {
